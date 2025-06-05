@@ -87,7 +87,7 @@ jobs:
               export IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' solar-system-app)
               echo "IP: $IP"
               echo testing the app
-              wget -qO- http://$IP:3000/live | grep live
+              wget -qO- http://$IP:3000/api/planets || exit 1
 
           
 
